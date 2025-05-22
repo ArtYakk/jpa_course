@@ -1,4 +1,4 @@
-package com.artemyakkonen;
+package com.artemyakkonen.jdbc_crud;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

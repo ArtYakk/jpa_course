@@ -1,4 +1,4 @@
-package com.artemyakkonen;
+package com.artemyakkonen.jdbc_crud;
 
 public class Student {
      private Long id;

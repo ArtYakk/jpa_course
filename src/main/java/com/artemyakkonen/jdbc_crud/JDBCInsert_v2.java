@@ -1,29 +1,32 @@
-package com.artemyakkonen;
+package com.artemyakkonen.jdbc_crud;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class JDBCDelete {
+public class JDBCInsert_v2 {
     static final String DB_URL = "jdbc:postgresql://109.120.155.136:5432/test_db";
     static final String USER = "jpauser";
     static final String PWD = "jpapwd";
 
     public static void main(String[] args) {
         Connection connection = null;
+        Student student = new Student("Pharell", "Williams", 8.2);
 
 
         try {
             connection = DriverManager.getConnection(DB_URL, USER, PWD);
+            Statement statement = connection.createStatement();
 
-            PreparedStatement statement = connection.prepareStatement(
-                    "DELETE FROM students WHERE surname = ?"
-            );
-            statement.setString(1, "Tregulov");
-           int deletedRows =  statement.executeUpdate();
+            String sqlQuery = "INSERT INTO students(name, surname, avg_grade) values " +
+                    "('" +
+                    student.getName() +
+                    "', '" +
+                    student.getSurname() +
+                    "', " +
+                    student.getAvgGrade() +
+                    ")";
 
-           System.out.println("deleted rows: " + deletedRows);
-           statement.close();
+            statement.executeUpdate(sqlQuery);
+
         }
         catch (SQLException e){
             e.printStackTrace();

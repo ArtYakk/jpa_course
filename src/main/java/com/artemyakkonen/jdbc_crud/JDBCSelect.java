@@ -1,11 +1,8 @@
-package com.artemyakkonen;
+package com.artemyakkonen.jdbc_crud;
 
-import javax.xml.transform.Result;
-import java.awt.image.ShortLookupTable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class JDBCSelect {
     static final String DB_URL = "jdbc:postgresql://109.120.155.136:5432/test_db";
