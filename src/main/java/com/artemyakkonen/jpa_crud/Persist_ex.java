@@ -1,6 +1,6 @@
 package com.artemyakkonen.jpa_crud;
 
-import com.artemyakkonen.jdbc_crud.Student;
+import com.artemyakkonen.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -8,16 +8,16 @@ import jakarta.persistence.Persistence;
 
 public class Persist_ex {
     public static void main(String[] args) {
-        try (EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("jpa-course")) {
-            EntityManager entityManager = factory.createEntityManager();
+        EntityManagerFactory factory = Persistence
+                .createEntityManagerFactory("jpa-course");
+        EntityManager entityManager = factory.createEntityManager();
 
             EntityTransaction transaction = entityManager.getTransaction();
             Student student = null;
 
             try {
                 transaction.begin();
-                student = new Student("Chanel", "King",9.1);
+                student = new Student("Leo", "Pharrel",7.1);
                 entityManager.persist(student);
                 transaction.commit();
             }
@@ -28,9 +28,13 @@ public class Persist_ex {
                 e.printStackTrace();
             }
             finally {
-                entityManager.close();
+                if(entityManager != null){
+                    entityManager.close();
+                    factory.close();
+                }
+                System.out.println(student);
             }
-        }
+
 
 
     }

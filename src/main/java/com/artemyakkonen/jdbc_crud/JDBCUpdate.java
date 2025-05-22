@@ -1,5 +1,7 @@
 package com.artemyakkonen.jdbc_crud;
 
+import com.artemyakkonen.entity.Student;
+
 import java.sql.*;
 import java.util.Scanner;
 
