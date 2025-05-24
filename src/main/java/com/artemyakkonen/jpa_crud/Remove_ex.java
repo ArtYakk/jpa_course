@@ -16,8 +16,8 @@ public class Remove_ex {
         try {
             transaction.begin();
 
-            student = entityManager.find(Student.class, 9);
-
+            student = entityManager.find(Student.class, 10);
+            entityManager.remove(student);
 
             transaction.commit();
         }
@@ -33,7 +33,7 @@ public class Remove_ex {
                 factory.close();
             }// 9 Selena
 
-            System.out.println(student);
+          //  System.out.println(student);
         }
     }
 }
