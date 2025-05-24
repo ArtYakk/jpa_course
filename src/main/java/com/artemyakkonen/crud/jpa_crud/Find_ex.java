@@ -1,9 +1,8 @@
-package com.artemyakkonen.jpa_crud;
+package com.artemyakkonen.crud.jpa_crud;
 
-import com.artemyakkonen.entity.Student;
+import com.artemyakkonen.crud.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 public class Find_ex {

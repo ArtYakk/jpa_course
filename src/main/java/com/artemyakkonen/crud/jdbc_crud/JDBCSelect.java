@@ -1,6 +1,6 @@
-package com.artemyakkonen.jdbc_crud;
+package com.artemyakkonen.crud.jdbc_crud;
 
-import com.artemyakkonen.entity.Student;
+import com.artemyakkonen.crud.entity.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
