@@ -1,9 +1,10 @@
-package com.artemyakkonen.relationships.one_to_one.entity;
+package com.artemyakkonen.relationships.one_to_many.entity;
 
+import com.artemyakkonen.relationships.one_to_one.entity.Passport;
 import jakarta.persistence.*;
 
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +20,6 @@ public class Student {
     @Column(name = "avg_grade")
      private Double avgGrade;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id")
-    private Passport passport;
 
     public Student() {
     }
@@ -64,13 +62,7 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
-    public Passport getPassport() {
-        return passport;
-    }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-    }
 
     @Override
     public String toString() {
@@ -79,7 +71,6 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
-                ", passport=" + passport +
                 '}';
     }
 }
