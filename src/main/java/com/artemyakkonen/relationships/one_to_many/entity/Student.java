@@ -20,6 +20,10 @@ public class Student {
     @Column(name = "avg_grade")
      private Double avgGrade;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "university_id")
+    private University university;
+
 
     public Student() {
     }
@@ -62,7 +66,13 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
+    public University getUniversity() {
+        return university;
+    }
 
+    public void setUniversity(University university) {
+        this.university = university;
+    }
 
     @Override
     public String toString() {
