@@ -8,7 +8,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class OneToOneUni {
+public class OneToOneBi {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("jpa-course");
@@ -19,23 +19,14 @@ public class OneToOneUni {
 
         try {
             transaction.begin();
-            //PERSIST
-//            Student student1 = new Student("Isaac", "Sharp", 9.4);
-//            Passport passport1 = new Passport("isaac@gmail.com", 183, "blue");
-//            student1.setPassport(passport1);
-//          //  entityManager.persist(passport1);
-//            entityManager.persist(student1);
-            //FIND
-//            Student student = entityManager.find(Student.class, 300);
-//            System.out.println(student);
-//            System.out.println(student.getPassport().toString());
 
-            //REMOVE
-//            Student student = entityManager.find(Student.class, 2);
-//            entityManager.remove(student);
-//
-//            transaction.commit();
-            //
+           //PERSIST
+            Student student1 = new Student("Isaac", "Sharp", 9.4);
+            Passport passport1 = new Passport("isaac@gmail.com", 183, "blue");
+            student1.setPassport(passport1);
+
+
+            transaction.commit();
         }
         catch (Exception e){
             if(transaction != null){

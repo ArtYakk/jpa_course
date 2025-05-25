@@ -20,6 +20,9 @@ public class Passport {
     @Column(name = "eye_color")
     private String eyeColor;
 
+    @OneToOne(mappedBy = "passport", cascade = CascadeType.ALL)
+    private Student student;
+
     public Passport() {
     }
 
@@ -59,5 +62,15 @@ public class Passport {
 
     public void setEyeColor(String eyeColor) {
         this.eyeColor = eyeColor;
+    }
+
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", height=" + height +
+                ", eyeColor='" + eyeColor + '\'' +
+                '}';
     }
 }
