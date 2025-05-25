@@ -21,10 +21,22 @@ public class OneToOneBi {
             transaction.begin();
 
            //PERSIST
-            Student student1 = new Student("Isaac", "Sharp", 9.4);
-            Passport passport1 = new Passport("isaac@gmail.com", 183, "blue");
-            student1.setPassport(passport1);
+//            Student student = new Student("Frankie", "Perry", 5.4);
+//            Passport passport = new Passport("frankie@gmail.com", 173, "brown");
+//            passport.setStudent(student);
+//            student.setPassport(passport);
+//            entityManager.persist(passport);
+            //FIND
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            System.out.println(passport);
+//            System.out.println(passport.getStudent());
+            //REMOVE
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            entityManager.remove(passport);
 
+            Passport passport = entityManager.find(Passport.class, 3);
+            passport.getStudent().setPassport(null);
+            entityManager.remove(passport);
 
             transaction.commit();
         }
