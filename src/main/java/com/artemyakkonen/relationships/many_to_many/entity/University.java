@@ -1,13 +1,14 @@
-package com.artemyakkonen.relationships.one_to_many.entity;
+package com.artemyakkonen.relationships.many_to_many.entity;
 
+import com.artemyakkonen.relationships.one_to_many.entity.Student;
 import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name = "universities")
+@Entity
+@Table(name = "universities")
 public class University {
 
     @Id
@@ -21,9 +22,13 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
-    //@OrderBy("id ASC, name ASC")
-    private List<Student> students = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "teacher_uni",
+            joinColumns = @JoinColumn(name = "university_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
+    )
+    private List<Teacher> teachers = new ArrayList<>();
 
     public University() {
     }
@@ -33,9 +38,8 @@ public class University {
         this.foundingDate = foundingDate;
     }
 
-    public void addStudentToUniversity(Student student){
-        students.add(student);
-        student.setUniversity(this);
+    public void addTeacherToUniversity(Teacher teacher){
+        teachers.add(teacher);
     }
 
     public Long getId() {
@@ -62,12 +66,12 @@ public class University {
         this.foundingDate = foundingDate;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public List<Teacher> getTeachers() {
+        return teachers;
     }
 
-    public void setList(List<Student> students) {
-        this.students = students;
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     @Override
