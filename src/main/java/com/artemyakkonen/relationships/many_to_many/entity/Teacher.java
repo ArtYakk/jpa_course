@@ -26,7 +26,7 @@ public class Teacher {
     @Column(name = "is_professor")
     private boolean isProfessor;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "teacher_uni",
             joinColumns = @JoinColumn(name = "teacher_id"),
