@@ -23,6 +23,7 @@ public class University {
 
     @OneToMany(mappedBy = "university",
             cascade = CascadeType.PERSIST)
+    @OrderBy("id ASC, name ASC")
     private List<Student> students = new ArrayList<>();
 
     public University() {

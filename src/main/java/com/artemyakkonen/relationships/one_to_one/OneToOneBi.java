@@ -34,9 +34,9 @@ public class OneToOneBi {
 //            Passport passport = entityManager.find(Passport.class, 2);
 //            entityManager.remove(passport);
 
-            Passport passport = entityManager.find(Passport.class, 3);
-            passport.getStudent().setPassport(null);
-            entityManager.remove(passport);
+//            Passport passport = entityManager.find(Passport.class, 3);
+//            passport.getStudent().setPassport(null);
+//            entityManager.remove(passport);
 
             transaction.commit();
         }
