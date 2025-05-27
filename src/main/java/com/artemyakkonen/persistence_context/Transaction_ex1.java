@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class EntityStates_ex1 {
+public class Transaction_ex1 {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
         EntityManager entityManager = factory.createEntityManager();
@@ -16,16 +16,21 @@ public class EntityStates_ex1 {
         try{
             transaction.begin();
 
-            Teacher teacher1 = new Teacher("Rio", "Berger", Subject.CHEMISTRY, false);
-            Teacher teacher2 = new Teacher("Lubov", "Korolkova", Subject.MATHS, true);
-          //  System.out.println(entityManager.contains(teacher));
-            entityManager.persist(teacher1);
-            entityManager.persist(teacher2);
-          //  System.out.println(entityManager.contains(teacher));
+            Teacher teacher1 = entityManager.find(Teacher.class, 3);
+            Teacher teacher2 = entityManager.find(Teacher.class, 4);
+
+            teacher1.setSubject(Subject.HISTORY);
+
+            Teacher teacher3 = entityManager.find(Teacher.class, 7);
+            System.out.println(teacher3.isProfessor());
+
+            teacher2.setSubject(Subject.HISTORY);
+
+       //     entityManager.persist(teacher1);
+         //   entityManager.persist(teacher2);
+
 
             transaction.commit();
-
-           // System.out.println(entityManager.contains(teacher));
         }
         catch(Exception e){
             if(transaction != null){
