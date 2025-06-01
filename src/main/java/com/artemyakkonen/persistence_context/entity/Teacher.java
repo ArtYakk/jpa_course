@@ -3,8 +3,8 @@ package com.artemyakkonen.persistence_context.entity;
 import jakarta.persistence.*;
 
 @Cacheable(value = true)
-@Entity
-@Table(name = "teachers")
+//@Entity
+//@Table(name = "teachers")
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
