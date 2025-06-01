@@ -20,6 +20,10 @@
             <property name="hibernate.transaction.jta.platform"
                       value="org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform"/>
 
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.JCacheRegionFactory"/>
+            <property name="javax.cache.provider" value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+            <property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE"/>
+
         </properties>
     </persistence-unit>
 </persistence>

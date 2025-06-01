@@ -2,7 +2,7 @@ package com.artemyakkonen.persistence_context.entity;
 
 import jakarta.persistence.*;
 
-
+@Cacheable(value = true)
 @Entity
 @Table(name = "teachers")
 public class Teacher {
