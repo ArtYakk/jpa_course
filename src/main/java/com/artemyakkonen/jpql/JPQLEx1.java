@@ -45,9 +45,56 @@ public class JPQLEx1 {
 //            System.out.println(students);
 //******************************************************************************************************************
 //            ALL STUDENTS WITH AVG BETWEEN 7 AND 8
-            List<Student> students = entityManager.createQuery("select s from Student s " +
-                    "where s.avgGrade between 7 and 8").getResultList();
-            System.out.println(students);
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where s.avgGrade between 7 and 8").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITH 'a' IN NAME
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where s.name like '%a%' ").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITH 'a' IN NAME
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where s.name like '%a%' ").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITH 'a' or 'A' IN NAME
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where lower(s.name) like '%a%' ").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITHOUT AVG GRADE INFO
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where s.avgGrade is null").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITH 'l' IN NAME AND AVG GRADE > 8.5
+//            List<Student> students = entityManager.createQuery("select s from Student s " +
+//                    "where s.name like '%l%' and s.avgGrade > 8.5").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS NAMES
+//            List<Student> students = entityManager.createQuery("select s.name from Student s").getResultList();
+//            System.out.println(students);
+//******************************************************************************************************************
+//            ALL STUDENTS WITH 'l' IN NAME AND AVG GRADE > 8.5
+//            List<Object[]> studentsInfo = entityManager.createQuery("select s.name, s.avgGrade from Student s")
+//                    .getResultList();
+//          for (Object[] info : studentsInfo){
+//              System.out.println(info[0] + "-->" + info[1]);
+//          }
+//******************************************************************************************************************
+//            MAX AVG GRADE
+//            Query query = entityManager.createQuery("select max(s.avgGrade) from Student s");
+//            double result = (double)query.getSingleResult();
+//            System.out.println(result);
+//******************************************************************************************************************
+//            AVERAGE OF AVERAGE GRADE
+//            Query query = entityManager.createQuery("select avg(s.avgGrade) from Student s");
+//            double result = (double)query.getSingleResult();
+//            System.out.println(result);
+
 
             transaction.commit();
         }catch (Exception e){
