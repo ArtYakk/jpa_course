@@ -1,6 +1,6 @@
 package com.artemyakkonen.jpql.entity;
 
-import com.artemyakkonen.relationships.one_to_many.entity.University;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,9 +20,9 @@ public class Student {
     @Column(name = "avg_grade")
      private Double avgGrade;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "university_id")
-//    private University university;
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
 
 
     public Student() {
@@ -66,13 +66,13 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
-//    public University getUniversity() {
-//        return university;
-//    }
-//
-//    public void setUniversity(University university) {
-//        this.university = university;
-//    }
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
+    }
 
     @Override
     public String toString() {
