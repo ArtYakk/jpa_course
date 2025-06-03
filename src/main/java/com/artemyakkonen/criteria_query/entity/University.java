@@ -1,5 +1,4 @@
-package com.artemyakkonen.jpql.entity;
-
+package com.artemyakkonen.criteria_query.entity;
 
 import jakarta.persistence.*;
 
@@ -7,23 +6,10 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name = "universities")
-//@NamedQuery(name = "University.allUniversitiesLessOrEqualTo2",
-//        query = "select u from University u where size(u.students) <= 2")
-//@NamedQuery(name = "University.studentsWithAvgGradeBetween",
-//        query = "select s from Student s where s.avgGrade between :from and :to")
-@NamedQueries(
-        {
-                @NamedQuery(name = "University.allUniversitiesLessOrEqualTo2",
-                        query = "select u from University u where size(u.students) <= 2"),
-
-                @NamedQuery(name = "University.studentsWithAvgGradeBetween",
-                        query = "select s from Student s where s.avgGrade between :from and :to")
-        }
-)
-
+@Entity
+@Table(name = "universities")
 public class University {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -35,7 +21,7 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university")
+    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
 
     public University() {
