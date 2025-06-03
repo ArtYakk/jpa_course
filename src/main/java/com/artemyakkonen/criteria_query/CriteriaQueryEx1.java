@@ -22,6 +22,8 @@ public class CriteriaQueryEx1 {
         EntityManager entityManager = factory.createEntityManager();
 
         try {
+            // JPQL: select s from Student s
+
             //1 Creation of Criteria Builder
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 
