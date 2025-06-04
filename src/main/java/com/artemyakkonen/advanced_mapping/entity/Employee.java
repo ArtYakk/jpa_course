@@ -24,6 +24,8 @@ public class Employee {
     private Double experience;
 
     @ElementCollection
+    @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
+    @Column(name = "friend_name")
     List<String> friends = new ArrayList<>();
 
 //    @Embedded

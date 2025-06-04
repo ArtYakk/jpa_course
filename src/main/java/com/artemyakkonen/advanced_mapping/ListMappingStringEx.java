@@ -21,13 +21,16 @@ public class ListMappingStringEx {
             transaction.begin();
 
             List<String> friendsNames = new ArrayList<>();
-            friendsNames.add("Chanel");
-            friendsNames.add("Leo");
-            friendsNames.add("Julia");
+            friendsNames.add("Roy");
+            friendsNames.add("Kynlee");
+            friendsNames.add("Eric");
 
-            Employee employee1 = new Employee("Michael", 4000, 15d, friendsNames);
+            Employee employee1 = new Employee("Rudlof", 3500, 10d, friendsNames);
 
             entityManager.persist(employee1);
+
+//            Employee employee = entityManager.find(Employee.class, 52);
+//            System.out.println(employee);
 
             transaction.commit();
         }catch (Exception e){
