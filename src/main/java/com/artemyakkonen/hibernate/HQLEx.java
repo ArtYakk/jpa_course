@@ -38,10 +38,10 @@ public class HQLEx {
 //                    "set avgGrade = 10.0 " +
 //                    "where length(name) = 5").executeUpdate();
 //            DELETE
-            session.createQuery("""
-                                     delete from Student s
-                                     where s.avgGrade < 9
-""").executeUpdate();
+//            session.createQuery("""
+//                                     delete from Student s
+//                                     where s.avgGrade < 9
+//""").executeUpdate();
 
             transaction.commit();
         }catch (Exception e){
