@@ -1,5 +1,6 @@
-package com.artemyakkonen.hibernate.entity;
+package com.artemyakkonen.hibernate;
 
+import com.artemyakkonen.hibernate.entity.Student;
 import com.artemyakkonen.util.MyColor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
