@@ -2,6 +2,9 @@ package com.artemyakkonen.advanced_mapping.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -20,25 +23,36 @@ public class Employee {
     @Column(name = "experience")
     private Double experience;
 
-    @Embedded
-    @AttributeOverrides(
-            {
-                    @AttributeOverride(name = "country", column = @Column(name = "emp_country")),
-                    @AttributeOverride(name = "city", column = @Column(name = "emp_city"))
-            }
+    @ElementCollection
+    List<String> friends = new ArrayList<>();
 
-    )
-    private Address address;
+//    @Embedded
+//    @AttributeOverrides(
+//            {
+//                    @AttributeOverride(name = "country", column = @Column(name = "emp_country")),
+//                    @AttributeOverride(name = "city", column = @Column(name = "emp_city"))
+//            }
+//
+//    )
+//    private Address address;
 
     public Employee() {
     }
 
-    public Employee(String name, Integer salary, Double experience, Address address) {
+    public Employee(String name, Integer salary, Double experience, List<String> friends) {
         this.name = name;
         this.salary = salary;
         this.experience = experience;
-        this.address = address;
+        this.friends = friends;
     }
+
+    //
+//    public Employee(String name, Integer salary, Double experience, Address address) {
+//        this.name = name;
+//        this.salary = salary;
+//        this.experience = experience;
+//        this.address = address;
+//    }
 
     public Long getId() {
         return id;
@@ -72,12 +86,12 @@ public class Employee {
         this.experience = experience;
     }
 
-    public Address getAddress() {
-        return address;
+    public List<String> getFriends() {
+        return friends;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setFriends(List<String> friends) {
+        this.friends = friends;
     }
 
     @Override
@@ -87,7 +101,27 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 ", experience=" + experience +
-                ", address=" + address +
+                ", friends=" + friends +
                 '}';
     }
+
+    //
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Employee{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", salary=" + salary +
+//                ", experience=" + experience +
+//                ", address=" + address +
+//                '}';
+//    }
 }
