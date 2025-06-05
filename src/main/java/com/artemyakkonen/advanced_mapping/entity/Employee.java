@@ -25,8 +25,17 @@ public class Employee {
 
     @ElementCollection
     @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
-    @Column(name = "friend_name")
-    List<String> friends = new ArrayList<>();
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "friend_name")),
+            @AttributeOverride(name = "surname", column = @Column(name = "friend_surname")),
+            @AttributeOverride(name = "age", column = @Column(name = "friend_age"))
+    })
+    private List<Friend> friends = new ArrayList<>();
+
+//    @ElementCollection
+//    @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
+//    @Column(name = "friend_name")
+//    List<String> friends = new ArrayList<>();
 
 //    @Embedded
 //    @AttributeOverrides(
@@ -41,12 +50,19 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, Integer salary, Double experience, List<String> friends) {
+    public Employee(String name, Integer salary, Double experience, List<Friend> friends) {
         this.name = name;
         this.salary = salary;
         this.experience = experience;
         this.friends = friends;
     }
+
+    //    public Employee(String name, Integer salary, Double experience, List<String> friends) {
+//        this.name = name;
+//        this.salary = salary;
+//        this.experience = experience;
+//        this.friends = friends;
+//    }
 
     //
 //    public Employee(String name, Integer salary, Double experience, Address address) {
@@ -88,11 +104,20 @@ public class Employee {
         this.experience = experience;
     }
 
-    public List<String> getFriends() {
+//    public List<String> getFriends() {
+//        return friends;
+//    }
+//
+//    public void setFriends(List<String> friends) {
+//        this.friends = friends;
+//    }
+
+
+    public List<Friend> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(List<Friend> friends) {
         this.friends = friends;
     }
 

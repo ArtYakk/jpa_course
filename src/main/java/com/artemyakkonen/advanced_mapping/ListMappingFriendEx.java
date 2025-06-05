@@ -1,7 +1,7 @@
 package com.artemyakkonen.advanced_mapping;
 
-import com.artemyakkonen.advanced_mapping.entity.Address;
 import com.artemyakkonen.advanced_mapping.entity.Employee;
+import com.artemyakkonen.advanced_mapping.entity.Friend;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -10,7 +10,7 @@ import jakarta.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListMappingStringEx {
+public class ListMappingFriendEx {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
         EntityManager entityManager = factory.createEntityManager();
@@ -19,18 +19,17 @@ public class ListMappingStringEx {
 
         try{
             transaction.begin();
-
-            List<String> friendsNames = new ArrayList<>();
-            friendsNames.add("Roy");
-            friendsNames.add("Kynlee");
-            friendsNames.add("Eric");
-
-//            Employee employee1 = new Employee("Rudlof", 3500, 10d, friendsNames);
-
-//            entityManager.persist(employee1);
-
-//            Employee employee = entityManager.find(Employee.class, 52);
-//            System.out.println(employee);
+//            List<Friend> friends = new ArrayList<>();
+//            Friend friend1 = new Friend("Yarvis", "Zhgilev", 24);
+//            Friend friend2 = new Friend("Vel", "Remshuev", 25);
+//            Friend friend3 = new Friend("Volodya", "Melch", 25);
+//            friends.add(friend1);
+//            friends.add(friend2);
+//            friends.add(friend3);
+//            Employee employee = new Employee("Artem", 2000, 3.0, friends);
+//            entityManager.persist(employee);
+            Employee employee = entityManager.find(Employee.class, 252);
+            System.out.println(employee);
 
             transaction.commit();
         }catch (Exception e){
