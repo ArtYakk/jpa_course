@@ -28,7 +28,7 @@ public class InheritanceMappingExample {
 //            Driver driver = new Driver("Michael", 2800, 25d, 'C', "Mercedes");
 //            entityManager.persist(teacher);
 //            entityManager.persist(driver);
-//
+
 //            Query query = entityManager.createQuery("select e from Employee e", Employee.class);
 //            List<Employee> employees = query.getResultList();
 //            System.out.println(employees);
