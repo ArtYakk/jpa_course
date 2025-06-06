@@ -23,13 +23,16 @@ public class InheritanceMappingExample {
 
 //            Teacher teacher = new Teacher("Alessandro", 1500, 5.0, "Maths", false);
 //            Driver driver = new Driver("Peter", 2300, 15d, 'B', "BMW");
+
+//            Teacher teacher = new Teacher("Rio", 2000, 7.0, "Biology", true);
+//            Driver driver = new Driver("Michael", 2800, 25d, 'C', "Mercedes");
 //            entityManager.persist(teacher);
 //            entityManager.persist(driver);
-
+//
 //            Query query = entityManager.createQuery("select e from Employee e", Employee.class);
 //            List<Employee> employees = query.getResultList();
 //            System.out.println(employees);
-
+//
             Query query = entityManager.createQuery("select d from Driver d", Employee.class);
             List<Employee> employees = query.getResultList();
             System.out.println(employees);
