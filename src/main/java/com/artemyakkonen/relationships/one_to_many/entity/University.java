@@ -6,8 +6,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name = "universities")
+@Entity
+@Table(name = "universities")
 public class University {
 
     @Id
@@ -21,7 +21,8 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "university", cascade = CascadeType.PERSIST)
     //@OrderBy("id ASC, name ASC")
     private List<Student> students = new ArrayList<>();
 

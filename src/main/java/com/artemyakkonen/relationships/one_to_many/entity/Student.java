@@ -3,8 +3,8 @@ package com.artemyakkonen.relationships.one_to_many.entity;
 import com.artemyakkonen.relationships.one_to_one.entity.Passport;
 import jakarta.persistence.*;
 
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,8 @@ public class Student {
     @Column(name = "avg_grade")
      private Double avgGrade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
     private University university;
 

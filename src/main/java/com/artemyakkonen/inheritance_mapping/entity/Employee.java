@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Employee {
     @Column(name = "id")
     @Id
