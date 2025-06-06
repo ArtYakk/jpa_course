@@ -2,15 +2,16 @@ package com.artemyakkonen.inheritance_mapping.entity;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 //@Table(name = "employees")
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(name = "emp_type")
 
 //@Table это для table per class
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
+@MappedSuperclass
 public abstract class Employee {
     @Column(name = "id")
     @Id
